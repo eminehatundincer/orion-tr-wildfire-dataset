@@ -1,0 +1,55 @@
+﻿sutun,grup,tip,eksik_oran,aciklama
+cell_id,anahtar,int32,0.0000,1 km grid hucre kimligi (satir*1950+sutun)
+day_idx,anahtar,int32,0.0000,2016-01-01'den itibaren gun sayisi
+date,anahtar,datetime64[ms],0.0000,Gozlem gunu (t)
+yil,anahtar,int16,0.0000,Yil
+ay,anahtar,int8,0.0000,Ay (1-12)
+split,anahtar,category,0.0000,"Zamansal bolme: train 2016-2022, val 2023, test 2024-2025"
+label,etiket,int8,0.0000,t+1..t+3 araliginda bu hucrede tutusma oldu mu (0/1)
+lat_center,konum_zaman,float32,0.0000,Hucre merkezi enlem
+lon_center,konum_zaman,float32,0.0000,Hucre merkezi boylam
+doy_sin,konum_zaman,float32,0.0000,Yilin gununun dairesel kodlamasi (sinus)
+doy_cos,konum_zaman,float32,0.0000,Yilin gununun dairesel kodlamasi (kosinus)
+frac_agac,arazi_ortusu,float32,0.0000,Hucrede agac ortusu orani (WorldCover 10)
+frac_maki,arazi_ortusu,float32,0.0000,Calilik/maki orani (WorldCover 20)
+frac_otlak,arazi_ortusu,float32,0.0000,Otlak orani (WorldCover 30)
+frac_tarim,arazi_ortusu,float32,0.0000,Tarim alani orani (WorldCover 40)
+frac_yapili,arazi_ortusu,float32,0.0000,Yapili alan orani (WorldCover 50)
+frac_ciplak,arazi_ortusu,float32,0.0000,Ciplak/seyrek ortu orani (WorldCover 60)
+frac_dogal,arazi_ortusu,float32,0.0000,Dogal yanici ortu orani (agac + maki)
+elev_mean,topografya,float32,0.0351,Ortalama yukseklik (m)
+elev_std,topografya,float32,0.0351,"Yukseklik standart sapmasi (arazi puruzlulugu, m)"
+elev_range,topografya,float32,0.0351,Hucre ici yukseklik farki (m)
+slope_mean,topografya,float32,0.0351,Ortalama egim (derece)
+slope_max,topografya,float32,0.0351,Maksimum egim (derece)
+aspect_sin,topografya,float32,0.0351,"Baki dogululuk bileseni (-1 bati, +1 dogu)"
+aspect_cos,topografya,float32,0.0351,"Baki kuzeylik bileseni (-1 guney, +1 kuzey)"
+dist_built_km,insan_faktoru,float32,0.0000,En yakin yapili alana mesafe (km)
+dist_crop_km,insan_faktoru,float32,0.0000,En yakin tarim alanina mesafe (km)
+dist_water_km,insan_faktoru,float32,0.0000,En yakin su kutlesine mesafe (km)
+natural_5x5,insan_faktoru,float32,0.0000,5 km cevrede dogal ortu orani (yakit surekliligi)
+built_5x5,insan_faktoru,float32,0.0000,5 km cevrede yapili alan orani
+crop_5x5,insan_faktoru,float32,0.0000,5 km cevrede tarim alani orani
+crop_edge,insan_faktoru,int8,0.0000,Orman-tarim gecis kusaginda mi (0/1)
+fwi,yangin_indeksleri,float32,0.0000,Fire Weather Index (t gunu)
+fwi_mean7,yangin_indeksleri,float32,0.0000,FWI son 7 gun ortalamasi
+fwi_mean30,yangin_indeksleri,float32,0.0000,FWI son 30 gun ortalamasi
+fwi_max7,yangin_indeksleri,float32,0.0000,FWI son 7 gun maksimumu
+ffmc,yangin_indeksleri,float32,0.0000,Fine Fuel Moisture Code (ince yakit nemi)
+dmc,yangin_indeksleri,float32,0.0000,Duff Moisture Code (orta katman nemi)
+dc,yangin_indeksleri,float32,0.0000,Drought Code (derin katman kurakligi)
+isi,yangin_indeksleri,float32,0.0000,Initial Spread Index (baslangic yayilim hizi)
+bui,yangin_indeksleri,float32,0.0000,Build Up Index (yanabilir yakit miktari)
+soil_w1,toprak_bitki,float32,0.0000,"Toprak nemi 0-7 cm (m3/m3, aylik)"
+soil_w2,toprak_bitki,float32,0.0000,Toprak nemi 7-28 cm
+soil_w3,toprak_bitki,float32,0.0000,Toprak nemi 28-100 cm
+soil_w4,toprak_bitki,float32,0.0000,Toprak nemi 100-289 cm
+soil_w1_anom,toprak_bitki,float32,0.0000,"Toprak nemi 0-7 cm, hucrenin kendi aylik normalinden sapma"
+soil_w2_anom,toprak_bitki,float32,0.0000,Toprak nemi 7-28 cm anomalisi
+soil_w3_anom,toprak_bitki,float32,0.0000,Toprak nemi 28-100 cm anomalisi
+soil_w4_anom,toprak_bitki,float32,0.0000,Toprak nemi 100-289 cm anomalisi
+lai_high,toprak_bitki,float32,0.0000,"Yaprak alan indeksi, yuksek bitki ortusu (iklimsel, aylik)"
+lai_low,toprak_bitki,float32,0.0000,"Yaprak alan indeksi, alcak bitki ortusu (iklimsel, aylik)"
+skin_temp,toprak_bitki,float32,0.0000,"Yuzey sicakligi (K, aylik)"
+fwi_grid_shift,teknik,int8,0.0000,FWI gridinde kiyi duzeltmesi icin kaydirma (hucre)
+era5_grid_shift,teknik,int8,0.0000,ERA5 gridinde kiyi duzeltmesi icin kaydirma (hucre)
