@@ -36,17 +36,17 @@ koşullarına bakarak, önümüzdeki 72 saatte burada yangın çıkma olasılı�
 ```python
 import pandas as pd
 
-df = pd.read\_parquet("orion\_tr\_dataset.parquet")
+df = pd.read\\\_parquet("orion\\\_tr\\\_dataset.parquet")
 
 # Zamansal bölme hazır: rastgele bölmeyin!
-train = df\[df.split == "train"]   # 2016–2022
-val   = df\[df.split == "val"]     # 2023
-test  = df\[df.split == "test"]    # 2024–2025
+train = df\\\[df.split == "train"]   # 2016–2022
+val   = df\\\[df.split == "val"]     # 2023
+test  = df\\\[df.split == "test"]    # 2024–2025
 
 # Modelde kullanılmayacak sütunlar
-drop = \["cell\_id", "day\_idx", "date", "label", "split",
-        "yil", "ay", "fwi\_grid\_shift", "era5\_grid\_shift"]
-features = \[c for c in df.columns if c not in drop]
+drop = \\\["cell\\\_id", "day\\\_idx", "date", "label", "split",
+        "yil", "ay", "fwi\\\_grid\\\_shift", "era5\\\_grid\\\_shift"]
+features = \\\[c for c in df.columns if c not in drop]
 ```
 
 Parquet okumak için `pip install pandas pyarrow` yeterlidir.
@@ -64,11 +64,11 @@ kullanın.
 
 ## 3\. Sütunlar
 
-Tam açıklamalar `column\_dictionary.csv` dosyasındadır. Özet:
+Tam açıklamalar `column\\\_dictionary.csv` dosyasındadır. Özet:
 
 |Grup|Sütun|İçerik|
 |-|-|-|
-|Anahtar|6|`cell\_id`, `day\_idx`, `date`, `yil`, `ay`, `split`|
+|Anahtar|6|`cell\\\_id`, `day\\\_idx`, `date`, `yil`, `ay`, `split`|
 |Etiket|1|`label`|
 |Konum \& zaman|4|Enlem, boylam, yılın gününün dairesel kodlaması|
 |Arazi örtüsü|7|Hücredeki ağaç / maki / otlak / tarım / yapılı / çıplak oranları|
@@ -93,7 +93,7 @@ Forest Fires veri setindeki sütunların Türkiye karşılığı.
 |**Copernicus EMS**|`cems-fire-historical-v1`, sistem 4\_1|FWI ailesi|Copernicus|
 |**Copernicus C3S**|`reanalysis-era5-land-monthly-means`|Toprak nemi, LAI|CC BY 4.0|
 
-Hepsi ücretsiz ve açık. Atıf metinleri `data\_raw/\*/source.json` altındadır.
+Hepsi ücretsiz ve açık. Atıf metinleri `data\\\_raw/\\\*/source.json` altındadır.
 
 \---
 
@@ -200,7 +200,7 @@ LightGBM/XGBoost bunu doğal işler, doldurmaya gerek yok.
 
 Öncelik sırasıyla:
 
-1. **Günlük rüzgâr ekle.** ERA5'ten `10m\_u/v\_component\_of\_wind` ve varsa rüzgâr
+1. **Günlük rüzgâr ekle.** ERA5'ten `10m\\\_u/v\\\_component\\\_of\\\_wind` ve varsa rüzgâr
 hamlesi. Şiddet tahminindeki en büyük eksik bu.
 2. **NDVI ekle.** MODIS MOD13Q1 veya Sentinel-2. LAI'nin yapamadığı şeyi yapar:
 yıllar arası bitki stresini ölçer.
@@ -219,22 +219,22 @@ Veri seti 17 adımda, tekrar çalıştırılabilir betiklerle üretildi. Her ad�
 kendi QA raporunu, SHA-256 manifestini ve eksik veri kaydını yazar.
 
 ```
- 1. download\_firms.py          FIRMS arşivi (2.028 pencere dosyası)
- 2. build\_firms\_events.py      temizlik + type filtresi
- 3. clip\_firms\_turkey.py       Türkiye sınırına kırpma
- 4. assign\_landcover.py        arazi örtüsü sınıfı atama
- 5. build\_grid.py              1 km grid + örtü oranları
- 6. build\_fire\_celldays.py     tutuşma / devam ayrımı
- 7. build\_sample\_frame.py      pozitif + negatif örnekleme
- 8. build\_terrain.py           Copernicus DEM → topografya
- 9. build\_human\_features.py    insan faktörü türetme
-10. download\_fwi.py            CEMS FWI indirme
-11. join\_fwi.py                FWI + gecikmeli değişkenler
-12. download\_era5\_monthly.py   ERA5-Land aylık indirme
-13. join\_era5\_monthly.py       toprak nemi + LAI + anomaliler
-14. build\_dataset.py           nihai birleştirme
-15. train\_baseline.py          temel model
-16. validate\_model.py          genelleme testleri + vaka incelemesi
+ 1. download\\\_firms.py          FIRMS arşivi (2.028 pencere dosyası)
+ 2. build\\\_firms\\\_events.py      temizlik + type filtresi
+ 3. clip\\\_firms\\\_turkey.py       Türkiye sınırına kırpma
+ 4. assign\\\_landcover.py        arazi örtüsü sınıfı atama
+ 5. build\\\_grid.py              1 km grid + örtü oranları
+ 6. build\\\_fire\\\_celldays.py     tutuşma / devam ayrımı
+ 7. build\\\_sample\\\_frame.py      pozitif + negatif örnekleme
+ 8. build\\\_terrain.py           Copernicus DEM → topografya
+ 9. build\\\_human\\\_features.py    insan faktörü türetme
+10. download\\\_fwi.py            CEMS FWI indirme
+11. join\\\_fwi.py                FWI + gecikmeli değişkenler
+12. download\\\_era5\\\_monthly.py   ERA5-Land aylık indirme
+13. join\\\_era5\\\_monthly.py       toprak nemi + LAI + anomaliler
+14. build\\\_dataset.py           nihai birleştirme
+15. train\\\_baseline.py          temel model
+16. validate\\\_model.py          genelleme testleri + vaka incelemesi
 ```
 
 Betikler `scripts/` klasöründedir. Yeniden çalıştırmak için `config/secrets.env`
@@ -247,17 +247,21 @@ içine kendi API anahtarlarınızı koymanız gerekir (NASA FIRMS ve Copernicus 
 
 |Dosya|Ne işe yarar|
 |-|-|
-|`orion\_tr\_dataset.parquet`|**Veri setinin kendisi**|
-|`column\_dictionary.csv`|Her sütunun Türkçe açıklaması|
-|`dataset\_card.md`|Ayrıntılı veri kartı|
-|`baseline\_model\_qa.md`|Temel model sonuçları|
-|`validation\_qa.md`|Genelleme testleri ve vaka incelemesi|
-|`feature\_importance.csv`|Değişken önem sıralaması|
-|`case\_studies.csv`|Gerçek yangınlar ve önceden verilen risk skorları|
-|`model\_test\_predictions.parquet`|Test tahminleri (haritada gösterilebilir)|
+|`orion\\\_tr\\\_dataset.parquet`|**Veri setinin kendisi**|
+|`column\\\_dictionary.csv`|Her sütunun Türkçe açıklaması|
+|`dataset\\\_card.md`|Ayrıntılı veri kartı|
+|`baseline\\\_model\\\_qa.md`|Temel model sonuçları|
+|`validation\\\_qa.md`|Genelleme testleri ve vaka incelemesi|
+|`feature\\\_importance.csv`|Değişken önem sıralaması|
+|`case\\\_studies.csv`|Gerçek yangınlar ve önceden verilen risk skorları|
+|`model\\\_test\\\_predictions.parquet`|Test tahminleri (haritada gösterilebilir)|
 |`scripts/`|Üretim betikleri|
 
 \---
+## Yapılacaklar (v2)
+
+\- Günlük rüzgar verisi eklenecek (ERA5)
+
 
 *Bu veri seti açık kaynaklardan üretilmiştir. Kaynak lisanslarına ve atıf
 şartlarına uyunuz.*
