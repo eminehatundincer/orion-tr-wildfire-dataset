@@ -1,9 +1,9 @@
 # ORION-TR — Türkiye Orman Yangını Risk Veri Seti
-Ahmet tarafından test değişikliği
+
 **Sürüm:** 1.0 · **Tarih:** 11 Eylül 2026 · **Kapsam:** Türkiye, 2016–2025
 
 \---
-Emine deneme yaptı.
+
 \*\*Veri setini indir:\*\* \[ORION-TR v1.0 — orion\_tr\_dataset.parquet](https://github.com/eminehatundincer/orion-tr-wildfire-dataset/releases/tag/v1.0)
 
 ## 1\. Bu nedir?
